@@ -1,0 +1,38 @@
+[reticulum]
+  enable_transport = True
+  share_instance = True
+  shared_instance_port = 37428
+  instance_control_port = 37429
+  panic_on_interface_error = False
+
+[logging]
+  loglevel = 4
+
+[interfaces]
+  [[Heltec_900MHz_RNode]]
+    type = RNodeInterface
+    interface_enabled = True
+    outgoing = True
+    port = /dev/ttyLoRa900
+    frequency = 915000000
+    bandwidth = 250000
+    txpower = 20
+    spreadingfactor = 7
+    codingrate = 5
+    id_callsign = NODE-PI5-900
+    id_interval = 600
+
+  [[Arduino_433MHz_TNC]]
+    type = KISSInterface
+    interface_enabled = True
+    outgoing = True
+    port = /dev/ttyTNC433
+    speed = 57600
+    databits = 8
+    parity = none
+    stopbits = 1
+    preamble = 150
+    txtail = 20
+    persistence = 180
+    slottime = 20
+    flow_control = False
